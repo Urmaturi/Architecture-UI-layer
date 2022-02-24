@@ -59,18 +59,15 @@ class GameFragment : Fragment() {
         Log.i("gameFragment", "Calld viewModelProvider.of! ")
         viewModel = ViewModelProviders.of(this).get(GameViewModel::class.java)
 
-
-        binding.correctButton.setOnClickListener {
-            viewModel.onCorrect()
-
-
-            // updateWordText()
-        }
-        binding.skipButton.setOnClickListener {
-            viewModel.onSkip()
-
-            // updateWordText()
-        }
+        binding.gameViewModel = viewModel
+//        binding.correctButton.setOnClickListener {
+//            viewModel.onCorrect()
+//            // updateWordText()
+//        }
+//        binding.skipButton.setOnClickListener {
+//            viewModel.onSkip()
+//            // updateWordText()
+//        }
 
         // updateWordText()
         viewModel.Time.observe(this, Observer { newTime ->

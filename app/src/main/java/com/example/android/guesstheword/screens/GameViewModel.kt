@@ -1,7 +1,6 @@
 package com.example.android.guesstheword.screens
 
 import android.os.CountDownTimer
-import android.text.format.DateUtils
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -17,7 +16,7 @@ class GameViewModel : ViewModel() {
         const val ONE_SECOND = 1000L
 
         // This is the total time of the game
-        const val COUNTDOWN_TIME = 60000L
+        const val COUNTDOWN_TIME = 6000L
     }
     // The current word
 //    private  val _timer = MutableLiveData<CountDownTimer>()

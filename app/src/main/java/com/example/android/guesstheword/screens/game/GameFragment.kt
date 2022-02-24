@@ -18,6 +18,7 @@ package com.example.android.guesstheword.screens.game
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.format.DateUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -33,10 +34,12 @@ import com.example.android.guesstheword.R
 import com.example.android.guesstheword.databinding.GameFragmentBinding
 import com.example.android.guesstheword.screens.GameViewModel
 
-/**
- * Fragment where the game is played
- */
+
 class GameFragment : Fragment() {
+
+
+
+
     private lateinit var viewModel: GameViewModel
 
     private lateinit var binding: GameFragmentBinding
@@ -71,7 +74,10 @@ class GameFragment : Fragment() {
         }
 
         // updateWordText()
+        viewModel.Time.observe(this, Observer { newTime ->
+            binding.timerText.text = DateUtils.formatElapsedTime(newTime)
 
+        })
         viewModel.score.observe(this, Observer { newScore ->
             binding.scoreText.text = newScore.toString()
         })
@@ -87,6 +93,7 @@ class GameFragment : Fragment() {
 
         })
 
+
         return binding.root
 
     }
@@ -96,7 +103,7 @@ class GameFragment : Fragment() {
 //        val currentScore = viewModel.score.value ?: 0
 //        val action = GameFragmentDirections.actionGameToScore(currentScore)
 //        findNavController(this).navigate(action)
-        Toast.makeText(this.activity, "Game has Finisshed", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this.activity, "Game has Finisshed", Toast.LENGTH_SHORT).show()
     }
 
 
